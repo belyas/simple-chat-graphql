@@ -1,0 +1,58 @@
+.login {
+  display: flex;
+  margin: 0 auto;
+  width: 50%;
+  flex-direction: column;
+  border: 1px solid #eee;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 12px 4px #ddd;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  position: relative;
+}
+.input {
+  height: 25px;
+  padding-left: 5px;
+}
+
+.btn {
+  border-width: 0;
+  outline: none;
+  padding: 10px;
+  cursor: pointer;
+}
+.btnSubmit {
+  background-color: #25ec25;
+  border: 1px solid #1cbe1c;
+  color: #212121;
+  font-weight: bold;
+  font-size: 14px;
+  width: 100%;
+}
+.btnSubmit:hover {
+  background-color: #fff;
+  border: 1px solid #1cbe1c;
+  color: #212121;
+}
+.h3 {
+  margin: 0px 0px 20px 0px;
+  text-align: center;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+}
+
+.error {
+  color: crimson;
+  text-align: center;
+  font-size: 14px;
+  background-color: rgba(255, 200, 205, 0.4);
+  padding: 10px;
+}
