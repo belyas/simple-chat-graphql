@@ -1,0 +1,12 @@
+{
+  "name": "simple-chat-graphql-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "keywords": [
+    "chat",
+    "graphql"
+  ],
+  "author": "Yassine Belkaid <yassine.belkaid87@gmail.com>",
+  "license": "MIT"
+}
