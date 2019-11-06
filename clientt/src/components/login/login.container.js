@@ -1,6 +1,7 @@
 import React from "react";
 
 import LoginComponent from "./login.component";
+import { login } from "../../auth";
 
 const EMAIL = "email";
 const PASSWORD = "password";
@@ -10,10 +11,8 @@ const LoginContainer = () => {
   const [email, setEmail] = React.useState(null);
   const [password, setPassword] = React.useState(null);
 
-  const onSubmitHandler = event => {
+  const onSubmitHandler = async event => {
     event.preventDefault();
-
-    console.log("event", event, email, password);
 
     if (!email || !password) {
       setError("Please fill in all field!");
@@ -21,16 +20,7 @@ const LoginContainer = () => {
     } else {
       setError(null);
 
-      fetch("http://localhost:5000/login", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json"
-        },
-        body: JSON.stringify({ email, password })
-      })
-        .then(response => response.json())
-        .then(data => console.log("[data]", data))
-        .catch(console.log);
+      await login(email, password);
     }
   };
 
