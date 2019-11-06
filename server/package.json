@@ -3,10 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "scripts": {
+    "start": "nodemon --ignore db server.js"
+  },
   "keywords": [
     "chat",
     "graphql"
   ],
   "author": "Yassine Belkaid <yassine.belkaid87@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^1.19.4"
+  }
 }
