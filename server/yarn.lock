@@ -1983,6 +1983,13 @@ normalize-path@^3.0.0:
   resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-3.0.0.tgz#0dcd69ff23a1c9b11fd0978316644a0388216a65"
   integrity sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==
 
+notarealdb@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/notarealdb/-/notarealdb-0.2.2.tgz#ef68b4c0b4b458e059cd90ad6ce9301be013f90c"
+  integrity sha512-mp3YjtP6pHhHTDhSFbDdEOLzRQ0Aj219ti64lsW/NZyPUxVUwSTZiTtto9Zm5C/nWyKxuO4OeaEAV61h/LAlDQ==
+  dependencies:
+    shortid "2.2.8"
+
 npm-bundled@^1.0.1:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/npm-bundled/-/npm-bundled-1.0.6.tgz#e7ba9aadcef962bb61248f91721cd932b3fe6bdd"
@@ -2427,6 +2434,11 @@ shebang-regex@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/shebang-regex/-/shebang-regex-1.0.0.tgz#da42f49740c0b42db2ca9728571cb190c98efea3"
   integrity sha1-2kL0l0DAtC2yypcoVxyxkMmO/qM=
+
+shortid@2.2.8:
+  version "2.2.8"
+  resolved "https://registry.yarnpkg.com/shortid/-/shortid-2.2.8.tgz#033b117d6a2e975804f6f0969dbe7d3d0b355131"
+  integrity sha1-AzsRfWoul1gE9vCWnb59PQs1UTE=
 
 signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
