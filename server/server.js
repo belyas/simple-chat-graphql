@@ -24,7 +24,7 @@ app.post("/login", (req, res) => {
   const user = db.users.get(email);
 
   if (!(user && user.password === password)) {
-    res.sendStatus(401);
+    res.status(401).send({ error: "Unauthorized" });
     return;
   }
 
