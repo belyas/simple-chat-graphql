@@ -1,27 +1,29 @@
 import React, { useContext, useState } from "react";
+import { useQuery } from "react-apollo";
 
 import Chat from "./chat.component";
 import { AuthContext } from "../../context";
+import { MESSAGES_LIST } from "../../graphql/queries";
 
 const KEYBOARD_ENTER_NUM = 13;
 
 const ChatContanier = () => {
+  const { data } = useQuery(MESSAGES_LIST);
   const authContext = useContext(AuthContext);
-  const [messages, setMessages] = useState([]);
-  const [userId, setUserId] = useState(1);
+  const [currentMessages, setCurrentMessages] = useState([]);
 
   const onKeyPressHanlder = e => {
-    const message = e.target.value;
+    const message = e.target.value.trim();
 
     if (e.which === KEYBOARD_ENTER_NUM && message) {
-      setMessages(
-        messages.concat({
-          id: userId,
+      setCurrentMessages(
+        currentMessages.concat({
+          id: 1,
           user: "yassinne",
           message
         })
       );
-      setUserId(id => id + 1);
+
       e.target.value = "";
     }
   };
@@ -29,7 +31,11 @@ const ChatContanier = () => {
   return (
     <Chat
       isLoggedin={authContext[0]}
-      messages={messages}
+      messages={
+        (!!currentMessages.length && currentMessages) ||
+        (data && data.messages) ||
+        []
+      }
       user="yassine"
       onKeyPress={onKeyPressHanlder}
     />
