@@ -2,7 +2,9 @@ import React from "react";
 
 import styles from "./login.module.css";
 
-const Login = ({ error, onSubmit, onChange }) => {
+const Login = ({ error, onSubmit, onChange, isLogged }) => {
+  if (isLogged) return null;
+
   return (
     <div className={styles.login}>
       <h3 className={styles.h3}>Login</h3>
