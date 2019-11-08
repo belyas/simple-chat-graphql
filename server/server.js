@@ -1,10 +1,18 @@
+const fs = require("fs");
+const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const expressJWT = require("express-jwt");
 const jwt = require("jsonwebtoken");
+const { ApolloServer } = require("apollo-server-express");
 
 const db = require("./db");
+const resolvers = require("./graphql/resolvers");
+const typeDefs = fs.readFileSync(
+  path.resolve(__dirname, "graphql", "schema.gql"),
+  { encoding: "utf8" }
+);
 
 const app = express();
 const PORT = 5000;
@@ -18,6 +26,15 @@ app.use(
     credentialsRequired: false
   })
 );
+
+const apolloServer = new ApolloServer({
+  typeDefs,
+  resolvers
+});
+apolloServer.applyMiddleware({
+  path: "/graphql",
+  app
+});
 
 app.post("/login", (req, res) => {
   const { email, password } = req.body;
