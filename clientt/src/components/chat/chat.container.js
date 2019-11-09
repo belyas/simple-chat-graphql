@@ -41,7 +41,7 @@ const ChatContanier = () => {
   return (
     <Chat
       isLoggedin={isLogged}
-      messages={!!currentMessages.length && currentMessages}
+      messages={currentMessages}
       user={(currentUser && currentUser.user) || "Unkonwn"}
       onKeyPress={onKeyPressHanlder}
     />
