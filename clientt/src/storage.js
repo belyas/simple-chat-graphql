@@ -1,3 +1,5 @@
+import jwtDecode from "jwt-decode";
+
 const TOKEN_KEY = "chat:token";
 
 export const setToken = token => {
@@ -10,4 +12,14 @@ export const getToken = () => {
 
 export const removeToken = () => {
   localStorage.removeItem(TOKEN_KEY);
+};
+
+export const getUserFromToken = () => {
+  const token = getToken();
+
+  if (token) {
+    return jwtDecode(token);
+  }
+
+  return null;
 };
