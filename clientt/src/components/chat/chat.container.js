@@ -9,7 +9,7 @@ const KEYBOARD_ENTER_NUM = 13;
 
 const ChatContanier = () => {
   const { data } = useQuery(MESSAGES_LIST);
-  const authContext = useContext(AuthContext);
+  const { isLogged } = useContext(AuthContext);
   const [currentMessages, setCurrentMessages] = useState([]);
 
   const onKeyPressHanlder = e => {
@@ -30,7 +30,7 @@ const ChatContanier = () => {
 
   return (
     <Chat
-      isLoggedin={authContext[0]}
+      isLoggedin={isLogged}
       messages={
         (!!currentMessages.length && currentMessages) ||
         (data && data.messages) ||
