@@ -2,6 +2,10 @@ type Query {
   messages: [Message]
 }
 
+type Mutation {
+  addMessage(user: String!, message: String!): Message
+}
+
 type Message {
   id: ID!
   user: String
