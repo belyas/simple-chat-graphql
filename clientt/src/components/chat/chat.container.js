@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useQuery } from "react-apollo";
 
 import Chat from "./chat.component";
@@ -12,6 +12,12 @@ const ChatContanier = () => {
   const { data } = useQuery(MESSAGES_LIST);
   const { isLogged, currentUser } = useContext(AuthContext);
   const [currentMessages, setCurrentMessages] = useState([]);
+
+  useEffect(() => {
+    if (data && data.messages) {
+      setCurrentMessages(data.messages);
+    }
+  }, [data]);
 
   const onKeyPressHanlder = async e => {
     //   event is nullished in case of async operation
@@ -35,11 +41,7 @@ const ChatContanier = () => {
   return (
     <Chat
       isLoggedin={isLogged}
-      messages={
-        (!!currentMessages.length && currentMessages) ||
-        (data && data.messages) ||
-        []
-      }
+      messages={!!currentMessages.length && currentMessages}
       user={(currentUser && currentUser.user) || "Unkonwn"}
       onKeyPress={onKeyPressHanlder}
     />
