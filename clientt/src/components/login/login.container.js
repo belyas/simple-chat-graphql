@@ -3,6 +3,7 @@ import React, { useState, useContext } from "react";
 import LoginComponent from "./login.component";
 import { login } from "../../auth";
 import { AuthContext } from "../../context";
+import { getUserFromToken } from "../../storage";
 
 const EMAIL = "email";
 const PASSWORD = "password";
@@ -11,7 +12,7 @@ const LoginContainer = () => {
   const [error, setError] = useState(null);
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
-  const [isLogged, setIsLogged] = useContext(AuthContext);
+  const { setIsLogged, setCurrentUser, isLogged } = useContext(AuthContext);
 
   const onSubmitHandler = async event => {
     event.preventDefault();
@@ -25,9 +26,11 @@ const LoginContainer = () => {
       if (error) {
         setError(error);
         setIsLogged(false);
+        setCurrentUser(null);
       } else {
         setError(null);
         setIsLogged(true);
+        setCurrentUser(getUserFromToken());
       }
     }
   };
